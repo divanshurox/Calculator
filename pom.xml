@@ -21,4 +21,52 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+<reporting>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-project-info-reports-plugin</artifactId>
+            <version>3.0.0</version>
+            <reportSets>
+                <reportSet>
+                    <reports>
+                        <report>index</report>
+                        <report>licenses</report>
+                        <report>dependency-info</report>
+                    </reports>
+                </reportSet>
+            </reportSets>
+        </plugin>
+    </plugins>
+</reporting>
+<build>
+  <plugins>
+    <plugin>
+      <artifactId>maven-assembly-plugin</artifactId>
+      <configuration>
+        <archive>
+          <manifest>
+            <mainClass>org.calculator.MVCmain</mainClass>
+          </manifest>
+        </archive>
+        <descriptorRefs>
+          <descriptorRef>jar-with-dependencies</descriptorRef>
+        </descriptorRefs>
+      </configuration>
+    </plugin>
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-site-plugin</artifactId>
+  <version>3.7.1</version>
+<configuration>
+          <port>3000</port>
+        </configuration>
+</plugin>
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-project-info-reports-plugin</artifactId>
+  <version>3.0.0</version>
+</plugin>
+  </plugins>
+</build>
 </project>
